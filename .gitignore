@@ -1,0 +1,17 @@
+# Legacy directories — preserved locally, not tracked
+old_app/
+old_docs/
+old-db/
+misc/
+www/
+www-client/
+app/
+
+# OS
+.DS_Store
+**/.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+.idea/
