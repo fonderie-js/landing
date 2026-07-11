@@ -5,7 +5,7 @@ old-db/
 misc/
 www/
 www-client/
-app/
+/app/
 
 # OS
 .DS_Store
