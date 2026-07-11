@@ -358,6 +358,33 @@
     }
   }
 
+  /* ---- subpage hero ---- */
+
+  .subhero {
+    border-bottom: 1px solid var(--color-border);
+    padding: 64px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    animation: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both reveal-load;
+  }
+
+  .subhero__title {
+    font-size: var(--text-hero);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-foreground);
+  }
+
+  @media (min-width: 768px) {
+    .subhero {
+      padding-block: 96px;
+    }
+  }
+
   @keyframes reveal-load {
     from {
       opacity: 0;
