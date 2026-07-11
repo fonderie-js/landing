@@ -1,3 +1,12 @@
 [submodule "fonderie-js"]
 	path = fonderie-js
 	url = git@github.com-fonderie-js:fonderie-js/sdk.git
+[submodule "platform/api"]
+	path = platform/api
+	url = git@github.com-crypolio:crypolio/crewfinding-api.git
+[submodule "platform/app"]
+	path = platform/app
+	url = git@github.com-unconfined:crypolio/app.git
+[submodule "platform/auth"]
+	path = platform/auth
+	url = git@github.com-unconfined:unconfinedscience/auth.git

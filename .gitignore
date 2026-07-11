@@ -19,3 +19,15 @@ npm-debug.log*
 # Scraped reference mirrors of myotto.ai — not source
 platform/myotto.ai/
 platform/myotto.ai-mirror/
+
+# Dependencies & build output
+node_modules/
+.next/
+coverage/
+*.tsbuildinfo
+yarn-error.log
+
+# Environment files — keep only the examples
+.env
+.env.*
+!.env.example

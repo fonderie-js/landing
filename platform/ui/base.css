@@ -1,0 +1,264 @@
+@layer reset, base;
+
+/* ═══════════════════════════════════════════════════════════
+   RESET LAYER
+   ═══════════════════════════════════════════════════════════ */
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  [hidden] {
+    display: none;
+  }
+
+  hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    border: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BASE LAYER — Tokens + Typography
+   ═══════════════════════════════════════════════════════════ */
+@layer base {
+  :root {
+    /* Color */
+    --color-primary: #171717;
+    --color-primary-hover: #000000;
+    --color-secondary: #171717;
+    --color-secondary-hover: #000000;
+    --color-accent: #0070f3;
+    --color-success: #0070f3;
+    --color-success-hover: #0060d3;
+    --color-warning: #f5a623;
+    --color-warning-hover: #d48f1e;
+    --color-danger: #e00;
+    --color-danger-hover: #c00;
+    --color-info: #0070f3;
+    --color-info-hover: #0060d3;
+    --color-dark: #171717;
+    --color-light: #666666;
+    --color-bg: #fafafa;
+    --color-surface: #ffffff;
+    --color-surface-alt: #fafafa;
+    --color-border: #eaeaea;
+    --color-border-alt: #d4d4d4;
+    --color-border-light: #f5f5f5;
+    --color-text: #171717;
+    --color-text-muted: #666666;
+    --color-text-link: #0070f3;
+    --color-text-link-hover: #0050c3;
+    --color-topbar: #000000;
+    --color-gradient-start: #000000;
+    --color-gradient-end: #171717;
+
+    /* Typography */
+    --font-sans: 'Manrope', sans-serif;
+    --font-mono: 'SFMono-Regular', Consolas, monospace;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 14px;
+    --text-base-md: 15px;
+    --text-lg: 1.0625rem;
+    --text-xl: 1.2em;
+    --leading: 1.7;
+
+    /* Spacing scale (multiples of 4px) */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+
+    /* Layout */
+    --container-max: 1140px;
+    --container-pad: 1rem;
+    --radius-sm: 2px;
+    --radius-base: 4px;
+    --radius-lg: 8px;
+    --radius-full: 9999px;
+
+    /* Shadow */
+    --shadow-card: 0 2px 3px 0 rgba(0, 0, 0, 0.05);
+    --shadow-card-hover: 0 15px 50px 0 rgba(0, 0, 0, 0.09);
+    --shadow-modal: 0 10px 55px 0 rgba(0, 0, 0, 0.2);
+    --shadow-dropdown: 0 0 35px 0 rgba(0, 0, 0, 0.2);
+    --shadow-navbar: 0 4px 35px 0 rgba(0, 0, 0, 0.1);
+
+    /* Transition */
+    --transition: all 0.4s ease;
+    --transition-fast: all 0.2s ease;
+  }
+
+  [data-theme="dark"] {
+      --color-primary: #ededed;
+      --color-primary-hover: #ffffff;
+      --color-secondary: #ededed;
+      --color-secondary-hover: #ffffff;
+      --color-accent: #0070f3;
+      --color-success: #0070f3;
+      --color-success-hover: #3291ff;
+      --color-warning: #f5a623;
+      --color-warning-hover: #f7b955;
+      --color-danger: #f33;
+      --color-danger-hover: #f55;
+      --color-info: #0070f3;
+      --color-info-hover: #3291ff;
+      --color-dark: #ededed;
+      --color-light: #888888;
+      --color-bg: #0a0a0a;
+      --color-surface: #111111;
+      --color-surface-alt: #1a1a1a;
+      --color-border: #27272a;
+      --color-border-alt: #3f3f46;
+      --color-border-light: #1c1c1e;
+      --color-text: #ededed;
+      --color-text-muted: #a1a1aa;
+      --color-text-link: #3291ff;
+      --color-text-link-hover: #0070f3;
+      --color-topbar: #0a0a0a;
+      --color-gradient-start: #111111;
+      --color-gradient-end: #0a0a0a;
+      --shadow-card: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+      --shadow-card-hover: 0 15px 50px 0 rgba(0, 0, 0, 0.4);
+      --shadow-modal: 0 10px 55px 0 rgba(0, 0, 0, 0.5);
+      --shadow-dropdown: 0 0 35px 0 rgba(0, 0, 0, 0.5);
+      --shadow-navbar: 0 4px 35px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    min-width: 320px;
+    color: var(--color-text);
+  }
+
+  /* ≥ md 768px */
+  @media (min-width: 768px) {
+    body {
+      font-size: var(--text-base-md);
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6, p,
+  ul:not([class]), ol, table {
+    margin-bottom: 12px;
+  }
+
+  h1:last-child, h2:last-child, h3:last-child,
+  h4:last-child, h5:last-child, h6:last-child,
+  p:last-child, ul:not([class]):last-child,
+  ol:last-child, table:last-child {
+    margin-bottom: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6, label {
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  h1, h2, h4, h5 {
+    color: var(--color-secondary);
+  }
+
+  h1 { font-size: 1.37em; }
+  h2 { font-size: 1.3em; }
+  h3 { font-size: 1.2em; }
+  h4 { font-size: 1.15em; }
+  h5 { font-size: 1.07em; }
+  h6 { font-size: 0.93em; }
+  p  { font-size: 1em; }
+
+  /* ≥ sm 576px */
+  @media (min-width: 576px) {
+    h1 { font-size: 1.714em; }
+    h2 { font-size: 1.62em; }
+    h3 { font-size: 1.52em; }
+    h4 { font-size: 1.29em; }
+  }
+
+  h1 span, h2 span, h3 span, h4 span, h5 span, h6 span, p span {
+    color: var(--color-primary);
+  }
+
+  b, strong {
+    font-weight: 500;
+  }
+
+  a {
+    outline: 0;
+    transition: var(--transition);
+    color: var(--color-text-link);
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    outline: 0;
+    color: var(--color-text-link-hover);
+  }
+
+  p a {
+    color: var(--color-text-link);
+  }
+
+  p a:hover,
+  p a:focus {
+    color: var(--color-primary);
+    box-shadow: 0 1px 0 currentColor;
+  }
+}

@@ -1,0 +1,164 @@
+/* ═══════════════════════════════════════════════════════════
+   VENDORS OVERRIDE
+   All !important usage is isolated to this file.
+   Third-party plugins: Select2, DataTables, Datepicker,
+   Timepicker, SimpleBar, Toastr, SweetAlert
+   ═══════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────
+   Select2
+   ─────────────────────────────────────────────────────── */
+.select2-container--flat .select2-selection--single,
+.select2-container--flat .select2-selection--multiple {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-surface) !important;
+  border-radius: var(--radius-base) !important;
+  box-shadow: 0 2px 18px 2px rgba(211, 224, 243, 0.25) !important;
+}
+
+.select2-container--flat .select2-selection--single .select2-selection__rendered,
+.select2-container--flat .select2-selection--multiple .select2-selection__rendered {
+  color: var(--color-text) !important;
+}
+
+.select-bordered + .select2-container--flat .select2-selection--single,
+.select-bordered + .select2-container--flat .select2-selection--multiple {
+  box-shadow: none !important;
+  border-color: var(--color-border) !important;
+}
+
+.select2-container--flat .select2-results__option--highlighted[aria-selected] {
+  background: rgba(230, 239, 251, 0.7) !important;
+  color: var(--color-text) !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   DataTables
+   ─────────────────────────────────────────────────────── */
+div.dataTables_wrapper div.dataTables_filter input {
+  width: 100% !important;
+  padding: 8px 30px !important;
+  line-height: 20px !important;
+  font-size: 13px !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter input:focus {
+  border: none !important;
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.data-table th.dataTables_empty,
+.data-table td.dataTables_empty {
+  background: var(--color-surface) !important;
+  border-radius: var(--radius-base) !important;
+  padding: 45px 0 15px !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   Datepicker
+   ─────────────────────────────────────────────────────── */
+.datepicker.dropdown-menu {
+  border: none !important;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid var(--color-border-alt) !important;
+}
+
+.datepicker table thead tr th:hover {
+  background: #eaf3fc !important;
+}
+
+.datepicker table tfoot tr th:hover {
+  background: #eaf3fc !important;
+}
+
+.datepicker table tr td.today,
+.datepicker table tr td.today.range {
+  background: rgba(37, 57, 146, 0.3) !important;
+  color: var(--color-text) !important;
+}
+
+.datepicker table tr td.selected,
+.datepicker table tr td.active.active,
+.datepicker table tr td span.active.active {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   Timepicker
+   ─────────────────────────────────────────────────────── */
+.ui-timepicker-container {
+  font-family: var(--font-sans) !important;
+  border: 1px solid var(--color-border-alt) !important;
+  border-top: none !important;
+  border-radius: 0 0 var(--radius-base) var(--radius-base) !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   SimpleBar
+   ─────────────────────────────────────────────────────── */
+.scroll-wrapper {
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+.simplebar-scrollbar::before {
+  background: #dbe4ed !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   Toastr
+   ─────────────────────────────────────────────────────── */
+.toast {
+  box-shadow: 0 2px 18px 2px rgba(73, 84, 99, 0.25) !important;
+  background: #090d1c !important;
+  border-radius: 5px !important;
+  border: none !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   SweetAlert
+   ─────────────────────────────────────────────────────── */
+.swal-button {
+  transition: var(--transition) !important;
+  background: var(--color-primary) !important;
+}
+
+.swal-button:not([disabled]):hover {
+  background: var(--color-primary-hover) !important;
+}
+
+.swal-button--confirm {
+  background: var(--color-success) !important;
+}
+
+.swal-button--confirm:not([disabled]):hover {
+  background: var(--color-success-hover) !important;
+}
+
+.swal-button:focus {
+  box-shadow: none !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   Bootstrap tooltip override (if tooltip.js still used)
+   ─────────────────────────────────────────────────────── */
+.tooltip.bs-tooltip-right .arrow::before {
+  border-right-color: var(--color-light) !important;
+}
+
+.tooltip.bs-tooltip-left .arrow::before {
+  border-left-color: var(--color-light) !important;
+}
+
+.tooltip.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: var(--color-light) !important;
+}
+
+.tooltip.bs-tooltip-top .arrow::before {
+  border-top-color: var(--color-light) !important;
+}
