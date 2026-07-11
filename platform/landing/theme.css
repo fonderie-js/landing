@@ -474,7 +474,6 @@
 
     .feature {
       padding: 40px;
-      min-height: 400px;
     }
 
     .feature--divide {
@@ -715,7 +714,7 @@
     padding: 32px;
     display: flex;
     flex-direction: column;
-    min-height: 340px;
+    min-height: 300px;
   }
 
   .duo__panel--wide {
@@ -871,7 +870,6 @@
       padding: 40px;
       border-bottom: 0;
       border-right: 1px solid var(--color-border);
-      min-height: 380px;
     }
 
     .duo__panel--wide {
