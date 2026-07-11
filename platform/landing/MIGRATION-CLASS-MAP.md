@@ -38,8 +38,8 @@ element role; the utility soup shown is abridged to its distinguishing classes.
 | Original | New BEM |
 |---|---|
 | `relative overflow-hidden border-b py-20 md:py-28 …` | `.hero` |
-| inline rainbow-gradient div | `.hero__spectrum` |
-| inline perspective-grid divs (top/bottom) | `.hero__grid--top` / `--bottom` |
+| inline rainbow-gradient div | `.hero__spectrum` — **removed** in the divergence pass |
+| inline perspective-grid divs (top/bottom) | `.hero__grid--top` / `--bottom` — **removed**; both replaced by `.hero__melt` (molten glow) |
 | `reveal-load relative z-10 flex flex-col items-center gap-6` | `.hero__content` |
 | logo mark svg `w-11 h-auto text-foreground` | `.hero__mark` |
 | `text-[38px] md:text-[54px] font-semibold tracking-display max-w-180` | `.hero__title` |
@@ -87,3 +87,17 @@ element role; the utility soup shown is abridged to its distinguishing classes.
 | `text-[10px] uppercase tracking-widest …` | `.footer__heading` |
 | `text-body-sm text-muted hover:text-foreground …` | `.footer__link` |
 | `mt-10 text-[11px] text-center …` | `.footer__copy` |
+
+## Post-migration additions
+
+Components added after the Tailwind→BEM conversion; these have no Otto
+original — they are Fonderie's own.
+
+| Component | Purpose |
+|---|---|
+| `.hero__melt` | Molten ember/emerald glow at the hero's bottom edge; replaces `.hero__spectrum` and both `.hero__grid` variants |
+| `.nav__wordmark` | Text wordmark ("fonderie") replacing the Otto logo SVG |
+| `.nav__menu` | Mobile dropdown menu (burger-toggled via `.nav--open`) |
+| `.subhero`, `.subhero__title` | Smaller hero for the subpages (`/platform`, `/products`, `/help`, `/contact`) |
+| `.footer__bottom` | Footer bottom row: copyright left, theme switcher right (stacked centered on mobile) |
+| `.theme-switch`, `__option` | System/Light/Dark segmented radio pill, ported from `platform/ui`; persists to `localStorage` as `data-theme` |
