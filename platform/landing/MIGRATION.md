@@ -121,9 +121,22 @@ price-by-contrast, Vercel-grade terseness):
 - Footer bottom row: copyright left, theme switcher right (stacked centered
   on mobile).
 
+## Proof surface — SDK live on npm ✅ (2026-07-11)
+
+- All 17 SDK packages published under the **@fonderie** scope
+  (core/client/store/logger at 0.1.0, the rest at 1.0.0); release tags on
+  [fonderie-js/sdk](https://github.com/fonderie-js/sdk). The GitHub org stays
+  `fonderie-js`; the npm scope is `@fonderie` (`fonderie-js` on npm is a
+  defensive registration).
+- Landing hero and `/platform` Core card carry a verified
+  `$ npm install @fonderie/core` pill; `/products` links the repo; footer has
+  GitHub + X icons. Every "Open source" claim on the site is now checkable.
+- The public SDK repo history was purged of `examples/` (client code) via
+  git-filter-repo before the first push.
+
 ## Remaining
 
 - `styles.css` deleted after QA — the site runs entirely on `base.css` + `theme.css`.
 - Legal text for Privacy/Terms pages, then restore the footer links.
 - `hello@fonderie.ai` mailbox must exist before publishing `contact`.
-- Nothing pushed to remotes yet (deliberate).
+- The site itself is not yet deployed (npm/GitHub are public; fonderie.ai is not).
