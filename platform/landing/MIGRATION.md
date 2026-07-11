@@ -67,13 +67,63 @@ Both themes now share typography and palette:
   borders `#e0e0e0`/`#d4d4d4`. **Dark**: bg `#0a0a0a`, surface `#111`,
   text `#ededed`, muted `#a1a1aa`, borders `#27272a`/`#3f3f46`.
   Accent: emerald `#00d294`/`#009767` (replaces ui's old blue).
-- **Day/night**: automatic via `prefers-color-scheme` in both (no toggle);
-  ui additionally honors an explicit `data-theme` attribute. Component
-  surfaces in `theme.css` use `--color-surface(-hover)` and `color-mix()`
-  translucency so dark mode reaches every element; the spend card and
-  device tile stay dark by design in both modes.
+- **Day/night**: automatic via `prefers-color-scheme` in both, plus the shared
+  footer theme switcher (System / Light / Dark). "System" clears the
+  `data-theme` override so the OS preference rules; Light/Dark persist to
+  `localStorage` and a pre-paint head snippet applies them without FOUC.
+  Component surfaces in `theme.css` use `--color-surface(-hover)` and
+  `color-mix()` translucency so dark mode reaches every element; the spend
+  card and device tile stay dark by design in both modes.
+
+## Rebrand — Otto → Fonderie ✅
+
+- All naming, metadata, OG/Twitter tags, and URLs swapped to
+  Fonderie / fonderie.ai / Fonderie, Inc.
+- Text wordmark ("fonderie") in the nav; "F" monogram in a rounded square
+  (`currentColor` + `var(--color-background)`, dark-mode aware) replaces the
+  Otto marks everywhere. `icon.svg` monogram favicon + minimal
+  `manifest.json` replace Otto's image icons.
+
+## Copy — sell the foundry ✅
+
+Positioning per the brand decisions (see memory: enemy-first, identity-driven,
+price-by-contrast, Vercel-grade terseness):
+
+- Hero: "Stop renting your own software." — enemy leads; share metas carry it.
+- Cards: Core (open source), Gateway, Connectors, Identity, Spend — each ends
+  on who the buyer becomes; Spend anchors price against the seat it replaces.
+- Duo: "One cockpit for it all." / "Proof, not promises." (crewfinding is the
+  unnamed first casting — client deliverable, never named as a feature).
+- All copy cut ~50% for terseness; headlines untouched.
+
+## Divergence from myotto.ai ✅
+
+- Hero: molten ember/emerald glow (`.hero__melt`) replaces Otto's rainbow
+  spectrum + dual 3D perspective grids.
+- Staged data is Fonderie-true: casting pipeline rows (crewfinding /
+  casting-02 / casting-03), dispatcher identity, FONDERIE •••• 2140 at
+  $86.20/$400, builder-stack connectors (Stripe/Postgres in), notification
+  "casting-02 · poured".
+- Section rhythm: two 3-card grids (intro/Core/Gateway, Connectors/Identity/
+  Spend) with the 50/50 cockpit-proof duo band between them. Cards size to
+  content at the original 320/300px baselines.
+
+## Multi-page site ✅
+
+- Pages: `/` plus `platform`, `products`, `help`, `contact` — shared
+  nav/footer, `.subhero` component, anchored deep links
+  (`/platform#core` …). Privacy/Terms links dropped until legal text exists.
+- Clean URLs: all internal links extensionless. `serve.mjs` (zero-dependency
+  Node) resolves `/platform` → `platform.html` for local review — matches
+  `cleanUrls: true` on Vercel / automatic on Cloudflare Pages /
+  `try_files $uri $uri.html` on nginx. Site requires a server; `file://`
+  navigation no longer works.
+- Footer bottom row: copyright left, theme switcher right (stacked centered
+  on mobile).
 
 ## Remaining
 
-- `styles.css` deleted after QA — the page runs entirely on `base.css` + `theme.css`.
-- Adapt copy/branding when repurposing as the Fonderie landing page.
+- `styles.css` deleted after QA — the site runs entirely on `base.css` + `theme.css`.
+- Legal text for Privacy/Terms pages, then restore the footer links.
+- `hello@fonderie.ai` mailbox must exist before publishing `contact`.
+- Nothing pushed to remotes yet (deliberate).
