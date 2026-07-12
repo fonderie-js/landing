@@ -78,7 +78,7 @@ Both themes now share typography and palette:
 ## Rebrand — Otto → Fonderie ✅
 
 - All naming, metadata, OG/Twitter tags, and URLs swapped to
-  Fonderie / fonderie.ai / Fonderie, Inc.
+  Fonderie / fonderiejs.com / Fonderie, Inc.
 - Text wordmark ("fonderie") in the nav; "F" monogram in a rounded square
   (`currentColor` + `var(--color-background)`, dark-mode aware) replaces the
   Otto marks everywhere. `icon.svg` monogram favicon + minimal
@@ -138,5 +138,5 @@ price-by-contrast, Vercel-grade terseness):
 
 - `styles.css` deleted after QA — the site runs entirely on `base.css` + `theme.css`.
 - Legal text for Privacy/Terms pages, then restore the footer links.
-- `hello@fonderie.ai` mailbox must exist before publishing `contact`.
-- The site itself is not yet deployed (npm/GitHub are public; fonderie.ai is not).
+- `hello@fonderiejs.com` mailbox must exist before publishing `contact`.
+- The site itself is not yet deployed (npm/GitHub are public; fonderiejs.com is not).
