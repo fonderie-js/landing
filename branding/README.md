@@ -82,18 +82,25 @@ it exists only inside the melt.
 
 | File | Use |
 |---|---|
-| `favicon-dark.svg` / `favicon-light.svg` | Mark on a rounded-square tile — favicons, app icons, avatars |
+| `favicon-dark.svg` / `favicon-light.svg` | Mark on a rounded-square tile, transparent corners — favicons, app icons |
 | `fonderie-icon-dark.svg` / `fonderie-icon-light.svg` | Bare mark, transparent background — any surface |
 | `fonderie-lockup-dark.svg` / `fonderie-lockup-light.svg` | Mark + wordmark — headers, nav bars |
-| `github-avatar.svg` | Mark, full-bleed square, no transparency — GitHub org/repo avatar upload |
+| `avatar-square-dark.svg` / `avatar-square-light.svg` | Mark, full-bleed square, opaque — profile picture upload (GitHub, X, anything that circle-crops) |
 | `banner.html` / `banner-light.html` | X banner with tagline (1500×500, transitional — see above) |
 | `banner-plain.html` / `banner-plain-light.html` | Text-free melt banner (1500×500, transitional) |
+
+Profile picture hosts (GitHub, X, Slack, …) mask uploads to a circle
+or rounded square themselves. `favicon-*.svg`'s own `rx` rounding and
+transparent corners fight that — the host's mask crops inside our
+already-rounded tile, leaving a ring of empty space. `avatar-square-*`
+is edge-to-edge with no transparency, so the host's own crop is the
+only rounding applied.
 
 ### Rendered (`export/`)
 
 | File | Size | Use |
 |---|---|---|
-| `x-avatar.png` / `x-avatar-light.png` | 800×800 | Profile pictures (dark is primary) |
+| `x-avatar.png` / `x-avatar-light.png` | 800×800 | X profile picture (dark is primary) |
 | `github-avatar.png` | 800×800 | GitHub org/repo avatar upload |
 | `x-banner.png` / `x-banner-light.png` | 1500×500 | Headers with the tagline — fixed-crop platforms only |
 | `banner-plain.png` / `banner-plain-light.png` | 1500×500 | Text-free melt — safe for platforms that crop unpredictably |
@@ -101,7 +108,7 @@ it exists only inside the melt.
 ## Rebuilding
 
 `favicon-*.svg`, `fonderie-icon-*.svg`, `fonderie-lockup-*.svg`, and
-`github-avatar.svg` are the source of truth — use them directly, no
+`avatar-square-*.svg` are the source of truth — use them directly, no
 build step required.
 
 The X banner PNGs still render from the HTML sources in `src/` with
@@ -112,13 +119,14 @@ chrome --headless --screenshot=export/x-banner.png \
   --window-size=1500,500 --hide-scrollbars src/banner.html
 ```
 
-`x-avatar.png` / `x-avatar-light.png` are a plain raster of
-`favicon-dark.svg` / `favicon-light.svg` at 800×800, same method:
+`x-avatar.png`, `x-avatar-light.png`, and `github-avatar.png` are a
+plain raster of `avatar-square-dark.svg` / `avatar-square-light.svg`
+at 800×800, same method (no transparency flag needed — the source has
+no transparent regions):
 
 ```sh
 chrome --headless --screenshot=export/x-avatar.png \
-  --window-size=800,800 --hide-scrollbars \
-  --default-background-color=00000000 src/favicon-dark.svg
+  --window-size=800,800 --hide-scrollbars src/avatar-square-dark.svg
 ```
 
 `github-avatar.png` is the same, but from `src/github-avatar.svg` and
