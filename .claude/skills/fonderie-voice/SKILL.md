@@ -35,7 +35,22 @@ we do; what it never does, we never do.
    and it's wired; the person who copy-pasted the same backend for three
    clients. One human image per page. Speak to "you".
 
+7. **Real problem, not plausible problem.** Graphify sells the pain felt
+   *every session* (tokens wasted), not a hypothetical one (what if your
+   graph is wrong?). Ours: everyone — big tech or solo — keeps rebuilding
+   login/payments/teams, and every AI session rebuilds them again. Lead
+   with that. A breach is plausible; the waste is real and daily.
+8. **The no-scroll test.** Before the first scroll, a stranger can say
+   what it is, for whom, and how. Graphify's formula: "[Name] is an
+   open-source skill that helps [who] [outcome] by [mechanism]." Plain
+   description is not category bragging — "is an open-source skill that…"
+   describes; "the best/first/standard for…" brags.
+
 ## Hard rules (Fonderie-specific)
+
+- **Never tell founders not to audit.** The project is open source so
+  they always *can*. The promise is "audit everything — or never need
+  to," never "don't look" or "trust us".
 
 - **Vocabulary:** foundry → mold → bricks → casting → **founders** (our
   users). Never "rails" (Ruby association). Never "users" when we mean
