@@ -85,6 +85,7 @@ it exists only inside the melt.
 | `favicon-dark.svg` / `favicon-light.svg` | Mark on a rounded-square tile — favicons, app icons, avatars |
 | `fonderie-icon-dark.svg` / `fonderie-icon-light.svg` | Bare mark, transparent background — any surface |
 | `fonderie-lockup-dark.svg` / `fonderie-lockup-light.svg` | Mark + wordmark — headers, nav bars |
+| `github-avatar.svg` | Mark, full-bleed square, no transparency — GitHub org/repo avatar upload |
 | `banner.html` / `banner-light.html` | X banner with tagline (1500×500, transitional — see above) |
 | `banner-plain.html` / `banner-plain-light.html` | Text-free melt banner (1500×500, transitional) |
 
@@ -93,13 +94,15 @@ it exists only inside the melt.
 | File | Size | Use |
 |---|---|---|
 | `x-avatar.png` / `x-avatar-light.png` | 800×800 | Profile pictures (dark is primary) |
+| `github-avatar.png` | 800×800 | GitHub org/repo avatar upload |
 | `x-banner.png` / `x-banner-light.png` | 1500×500 | Headers with the tagline — fixed-crop platforms only |
 | `banner-plain.png` / `banner-plain-light.png` | 1500×500 | Text-free melt — safe for platforms that crop unpredictably |
 
 ## Rebuilding
 
-`favicon-*.svg`, `fonderie-icon-*.svg`, and `fonderie-lockup-*.svg` are
-the source of truth — use them directly, no build step required.
+`favicon-*.svg`, `fonderie-icon-*.svg`, `fonderie-lockup-*.svg`, and
+`github-avatar.svg` are the source of truth — use them directly, no
+build step required.
 
 The X banner PNGs still render from the HTML sources in `src/` with
 headless Chrome:
@@ -116,6 +119,15 @@ chrome --headless --screenshot=export/x-banner.png \
 chrome --headless --screenshot=export/x-avatar.png \
   --window-size=800,800 --hide-scrollbars \
   --default-background-color=00000000 src/favicon-dark.svg
+```
+
+`github-avatar.png` is the same, but from `src/github-avatar.svg` and
+without the transparency flag (GitHub avatar uploads want an opaque
+square, not a pre-rounded tile):
+
+```sh
+chrome --headless --screenshot=export/github-avatar.png \
+  --window-size=800,800 --hide-scrollbars src/github-avatar.svg
 ```
 
 ## Usage
