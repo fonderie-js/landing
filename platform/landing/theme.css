@@ -139,11 +139,32 @@
     color: var(--color-foreground);
   }
 
-  .nav__wordmark {
-    font-size: 17px;
-    font-weight: var(--weight-semibold);
-    letter-spacing: var(--tracking-display);
-    color: var(--color-foreground);
+  .nav__logo-mark {
+    display: block;
+    height: 18px;
+    width: auto;
+  }
+
+  .nav__logo-mark--dark {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .nav__logo-mark--light {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .nav__logo-mark--dark {
+    display: block;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .nav__logo-mark--light {
+      display: none;
+    }
+
+    :root:not([data-theme="light"]) .nav__logo-mark--dark {
+      display: block;
+    }
   }
 
   .nav__links {
