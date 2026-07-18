@@ -113,7 +113,23 @@
 						</div>
 					</li>
 				</ul>
-				<a href="kyc-application.html" class="btn btn--sm btn--outline btn--light navbar__cta"><i class="ph ph-files"></i><span>KYC Application</span></a>
+				<div class="project-switcher navbar__cta">
+					<a href="#" class="btn btn--sm btn--outline btn--light project-switcher__trigger"><i class="ph ph-files"></i><span>Project #1</span><i class="ph ph-caret-down"></i></a>
+					<div class="project-switcher__menu">
+						<div class="project-switcher__search">
+							<input class="project-switcher__input" type="text" placeholder="Find Project&hellip;">
+							<button class="project-switcher__esc" type="button"><kbd>Esc</kbd></button>
+						</div>
+						<div class="project-switcher__list">
+							<a href="#" class="project-switcher__item project-switcher__item--all"><i class="ph ph-squares-four"></i><span>All Projects</span></a>
+							<a href="#" class="project-switcher__item is-active" data-project><i class="ph ph-folder"></i><span class="project-switcher__item-label">Project #1</span><i class="ph ph-check project-switcher__check"></i></a>
+							<div class="project-switcher__empty" hidden>No projects found</div>
+						</div>
+						<div class="project-switcher__footer">
+							<a href="#" class="project-switcher__item project-switcher__create"><i class="ph ph-plus"></i><span>Create Project</span></a>
+						</div>
+					</div>
+				</div>
 				</div>
 			</nav>
 		</header>
@@ -200,6 +216,46 @@
 
 			// Close dropdowns when clicking outside
 			document.querySelectorAll('.toggle-class.active').forEach(function(el) { el.classList.remove('active'); });
+		});
+
+		// Project switcher (navbar CTA dropdown)
+		document.querySelectorAll('.project-switcher').forEach(function(switcher) {
+			var trigger = switcher.querySelector('.project-switcher__trigger');
+			var input = switcher.querySelector('.project-switcher__input');
+			var escBtn = switcher.querySelector('.project-switcher__esc');
+			var items = switcher.querySelectorAll('.project-switcher__item[data-project]');
+			var empty = switcher.querySelector('.project-switcher__empty');
+
+			function close() {
+				switcher.classList.remove('open');
+				input.value = '';
+				filter();
+			}
+
+			function filter() {
+				var query = input.value.trim().toLowerCase();
+				var visible = 0;
+				items.forEach(function(item) {
+					var match = item.textContent.toLowerCase().indexOf(query) !== -1;
+					item.hidden = !match;
+					if (match) visible++;
+				});
+				empty.hidden = query === '' || visible > 0;
+			}
+
+			trigger.addEventListener('click', function(e) {
+				e.preventDefault();
+				switcher.classList.toggle('open');
+				if (switcher.classList.contains('open')) input.focus();
+			});
+			input.addEventListener('input', filter);
+			input.addEventListener('keydown', function(e) {
+				if (e.key === 'Escape') close();
+			});
+			escBtn.addEventListener('click', close);
+			document.addEventListener('click', function(e) {
+				if (!switcher.contains(e.target)) close();
+			});
 		});
 
 		// Mobile nav toggle (hamburger)
